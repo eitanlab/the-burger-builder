@@ -1,5 +1,5 @@
-import React from 'react';
-import Aux from '../../../hoc/Auxiliary';
+import React, { memo } from 'react';
+import Aux from '../../../hoc/Auxiliary/Auxiliary';
 import Button from '../../UI/Button/Button';
 
 
@@ -23,4 +23,4 @@ const orderSummary = (props) => {
     )
 };
 
-export default orderSummary;
+export default memo(orderSummary);
