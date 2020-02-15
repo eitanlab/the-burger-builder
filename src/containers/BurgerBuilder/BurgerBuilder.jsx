@@ -23,7 +23,7 @@ class BurgerBuilder extends Component {
             cheese: 0,
             meat: 0 
         },
-        totalPrice: 2,
+        totalPrice: 0,
         purchasable: false,
         purchasing: false,
         loading: false
@@ -105,6 +105,14 @@ class BurgerBuilder extends Component {
             this.updatePurchaseState(updatedIngredients);
         }
     }
+
+    cleanOrderHandler = () => {
+        const ingredients = this.state.ingredients;
+        Object.keys(ingredients).map(type => {
+            ingredients[type] = 0;
+        });
+        this.setState({ ingredients: ingredients, totalPrice: 0, purchasable: false });
+    }
     
     render () {
         const disabledInfo = {
@@ -134,7 +142,9 @@ class BurgerBuilder extends Component {
                     disabled={disabledInfo}
                     purchasable={this.state.purchasable}
                     price={this.state.totalPrice} 
-                    ordered={this.purchaseHandler}/>
+                    ordered={this.purchaseHandler}
+                    cleaned={this.cleanOrderHandler}
+                    />
             </Aux>
         );
     }

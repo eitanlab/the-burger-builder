@@ -25,7 +25,7 @@ const buildControls = (props) => (
             <button 
                 className={classes.Cancel}
                 disabled={!props.purchasable}
-                onClick={props.ordered} >CANCEL
+                onClick={props.cleaned} >CLEAN
             </button>
             <button 
                 className={classes.Order}
