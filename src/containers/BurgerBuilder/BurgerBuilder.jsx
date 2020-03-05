@@ -102,7 +102,7 @@ class BurgerBuilder extends Component {
 
     cleanOrderHandler = () => {
         const ingredients = this.state.ingredients;
-        Object.keys(ingredients).map(type => {
+        Object.keys(ingredients).foreach(type => {
             ingredients[type] = 0;
         });
         this.setState({ ingredients: ingredients, totalPrice: 0, purchasable: false });

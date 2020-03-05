@@ -39,7 +39,7 @@
     color: #993305;
 }
 
-.ButtonSet .Order:hover, .ButtonSet .Order:active {
+.ButtonSet .Order:hover:not(:disabled), .ButtonSet .Order:active {
     box-shadow: 0 6px 6px -6px black;
 }
 
@@ -48,6 +48,7 @@
     cursor: not-allowed;
     border: 1px solid #ccc;
     color: #888888;
+    box-shadow: none;
 }
 
 .ButtonSet button:not(:disabled) {
