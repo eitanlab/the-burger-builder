@@ -5,7 +5,8 @@ import { fetchOrdersStart } from '../actions/order';
 const initialState = {
     ingredients: null,
     totalPrice: 4,
-    error: false
+    error: false,
+    building: false
 }
 
 const INGREDIENT_PRICES = {
@@ -20,7 +21,8 @@ const addIngredient = (state, action) => {
     const updatedIngredientsMore = updateObject(state.ingredients, updatedIngredientMore);
     const updatedStateMore = {
         ingredients: updatedIngredientsMore,
-        totalPrice: state.totalPrice + INGREDIENT_PRICES[action.ingredientName]
+        totalPrice: state.totalPrice + INGREDIENT_PRICES[action.ingredientName],
+        building: true
     }
     return updateObject(state, updatedStateMore);
 }
@@ -34,7 +36,8 @@ const setIngredients = (state, action) => {
             meat: action.ingredients.meat
         },
         totalPrice: 4,
-        error: false
+        error: false,
+        building: false
     });
 }
 
@@ -47,7 +50,8 @@ const removeIngredient = (state, action) => {
     const updatedIngredientsLess = updateObject(state.ingredients, updatedIngredientLess);
     const updatedStateLess = {
         ingredients: updatedIngredientsLess,
-        totalPrice: state.totalPrice + INGREDIENT_PRICES[action.ingredientName]
+        totalPrice: state.totalPrice + INGREDIENT_PRICES[action.ingredientName],
+        building: true
     }
     return updateObject(state, updatedStateLess);
 }
