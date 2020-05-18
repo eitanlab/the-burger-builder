@@ -1,5 +1,4 @@
 import React, {lazy, Suspense, useEffect} from "react"
-
 import Layout from "./hoc/Layout/Layout"
 import BurgerBuilder from "./containers/BurgerBuilder/BurgerBuilder"
 import { Route, Switch, withRouter, Redirect } from "react-router-dom"
@@ -20,18 +19,15 @@ const App = () => {
 	}, [dispatch]);
 
 	let routes = (
-		<Suspense fallback={<span>Loading...</span>}>
 			<Switch>
 				<Route path="/auth" render={ props => <Auth  {...props} /> } />
 				<Route path="/" exact component={BurgerBuilder} />
 				<Redirect to="/" />
 			</Switch>
-		</Suspense>
 	);
 
 	if(isAuthenticated) {
 		routes = (
-			<Suspense fallback={<span>Loading...</span>}>
 				<Switch>
 					<Route path="/checkout" render={ props => <Checkout {...props} /> } />
 					<Route path="/orders" render={ props => <Orders {...props} /> } />
@@ -40,14 +36,15 @@ const App = () => {
 					<Route path="/" exact component={BurgerBuilder} />
 					<Redirect to="/" />
 				</Switch>
-			</Suspense>
 		);
 	}
 
 	return (
 		<div>
 			<Layout>
-				{routes}
+				<Suspense fallback={<span>Loading...</span>}>
+					{routes}
+				</Suspense>
 			</Layout>
 		</div>
 	);
