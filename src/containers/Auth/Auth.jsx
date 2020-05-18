@@ -1,11 +1,9 @@
-import React, { Component, useState, useEffect } from 'react'
+import React, {useState, useEffect } from 'react'
 import Input from '../../components/UI/Input/Input'
 import Button from '../../components/UI/Button/Button'
 import classes from './Auth.module.css'
-import * as actions from '../../store/actions/index'
-//import {connect} from 'react-redux'
 import { useDispatch, useSelector } from "react-redux"
-import {auth, setAuthRedirectPath} from '../../store/actions/auth'
+import {auth, setAuthRedirectPath} from '../../store/actions/index'
 import Spinner from '../../components/UI/Spinner/Spinner'
 import {Redirect} from 'react-router-dom'
 import { updateObject, checkValidity } from '../../shared/utility'
@@ -57,7 +55,7 @@ const Auth = props => {
         if (!buildingBurger && authRedirectPath !== '/') {
             dispatch(setAuthRedirectPath());
         }
-    }, []);
+    }, [dispatch, authRedirectPath, buildingBurger]);
 
     const inputChangedHandler = (event, controlName) => {
         const updatedControls = updateObject(controls, {
