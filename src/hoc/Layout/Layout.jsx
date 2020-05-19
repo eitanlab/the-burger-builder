@@ -35,43 +35,4 @@ const Layout = props => {
     );
 }
 
-/* class Layout extends Component {
-    state = {
-        showSideDrawer: false    
-    }
-    
-    sideDrawerClosedHandler = () => {
-        setState({showSideDrawer: false});
-    }
-
-    sideDrawerToggleHandler = () => {
-        setState((prevState) => {
-            return { showSideDrawer: !prevState.showSideDrawer};
-        });
-    }
-
-    render () {
-        return (
-            <Aux>
-                <Toolbar 
-                    drawerToggleClicked={sideDrawerToggleHandler}
-                    isAuth={isAuthenticated} />
-                <SideDrawer 
-                    open={state.showSideDrawer} 
-                    closed={sideDrawerClosedHandler}
-                    isAuth={isAuthenticated} />
-                <main className={classes.Content}>
-                    {props.children}
-                </main>
-            </Aux>
-        );
-    }
-}
-
-const mapStateToProps = state => {
-    return {
-        isAuthenticated: state.auth.token !== null
-    }
-} */
-
 export default Layout;
