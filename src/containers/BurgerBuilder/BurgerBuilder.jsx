@@ -10,8 +10,6 @@ import Spinner from '../../components/UI/Spinner/Spinner';
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 import axios from '../../hoc/axios-orders';
 
-// NO ESTÁ FUNCIONANDO EL REDIRECT PATH CUANDO COMPRO SIN ESTAR LOGEADO
-
 export const BurgerBuilder = props => {
     const [purchasing, setPurchasing] = useState(false);
     const ings = useSelector(state => state.burgerBuilder.ingredients);
@@ -25,7 +23,6 @@ export const BurgerBuilder = props => {
     },[]);
 
     const purchaseHandler = () => {
-        console.log('isAthenticated',isAuthenticated)
         if (isAuthenticated) {
             setPurchasing(true);
         } else {
