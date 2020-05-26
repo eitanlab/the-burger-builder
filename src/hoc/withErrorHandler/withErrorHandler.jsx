@@ -5,7 +5,7 @@ import useHttpErrorHandler from '../../hooks/http-error-handler';
 
 const withErrorHandler = ( WrappedComponent, axios ) => {
     return props => {
-        const [error, clearErrorMethod] = useHttpErrorHandler(axios);
+        const [error, errorConfirmedHandler] = useHttpErrorHandler(axios);
 
         return (
             <Aux>
